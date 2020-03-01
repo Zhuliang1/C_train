@@ -4,6 +4,14 @@
 #include <stdio.h >
 #include <math.h>
 #include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
+struct Student
+{
+	int num;
+	float score;
+	struct Student* next;
+};
 int main()
 {
 	float sum_lnx;
@@ -66,7 +74,65 @@ int main()
 	void print_diamond_star();
 	// print_diamond_star();
 	 void translate_code();
-	 translate_code();
+	 void solve_hanio();
+	 void extern_ex();
+	 extern void common_divisor();
+	 void pointer_test();
+	 void pointer_exchange();
+	 void exchange_test();
+	 void exchange_test_3();
+	 void array_pointer();
+	 void array_output();
+	 void inv_exchange();
+	 void sort_order_pointer();
+	 void Two_dimensional_address();
+	 void Two_dimensional_pointer();
+	 void test_aver();
+	 void test_search();
+	 void copy_string_test();
+	 void copy_string_test_1();
+	 void copy_string_test3();
+	 void format_test();
+	
+	  //copy_string_test3();
+	  void copy_string_test4();
+	  void function_pointer();
+	  void multiply_pointer();
+	  void pointer_array_pointer_var();
+	  void pointer_array_element();
+	  void Memory_allocation();
+	  void Linked_list();
+	  void union_test();
+	   union_test();
+	  // Linked_list();
+	  // Memory_allocation();
+	   //pointer_array_element();
+	  //pointer_array_pointer_var();
+
+	   //multiply_pointer();
+	   //function_pointer();
+	  //format_test();
+	  // copy_string_test4();
+	 //copy_string_test_1();
+	  //copy_string_test();
+	 // test_search();
+
+	 // test_aver();
+	 //Two_dimensional_pointer();
+
+	 // Two_dimensional_address();
+	 //sort_order_pointer();
+	 //inv_exchange();
+	  //array_output();
+	 // array_pointer();
+	 // exchange_test_3();
+	 // exchange_test();
+	 // pointer_exchange();
+	 //pointer_test();
+	 // common_divisor();
+	 //extern_ex();
+	 // solve_hanio();
+	 //translate_code();
 
 
 	// Search_by_half();
@@ -1317,28 +1383,30 @@ void Search_by_half()
 
 	
 }
+
+
 void print_diamond_star()
 {
-	int i, j,k;
-	for ( i = 0; i < 5; i++)
+	int i, j, k;
+	for (i = 0; i < 5; i++)
 	{
-		for ( k = 0; k < i; k++)
+		for (k = 0; k < i; k++)
 		{
 			printf("  ");
 		}
-		for ( j = 0; j < 5; j++)
+		for (j = 0; j < 5; j++)
 		{
 			printf("* ");
 
 		}
 		printf("\n");
-		
+
 
 
 
 
 	}
-
+}
 /*ABCD进行对称位移*/
 void translate_code()
 {
@@ -1384,7 +1452,684 @@ void hanio(int n, char one, char two, char three)
 	else
 	{
 		hanio(n - 1, one, three, two); 
+		move(one, three);
+		hanio(n - 1, two, one, three);
 
 	}
 	
 }
+void solve_hanio()
+{
+	
+	int m;
+	printf("input the number: \n");
+	scanf("%d",&m);
+	printf("The step to move %d diskes:\n",m);
+	hanio(m,'A','B','C');
+
+}
+void extern_ex()
+{
+	extern void enter_string(char str[80]);
+	extern void delete_string(char str[], char ch);
+	extern void print_string(char str[]);
+	char c, str[80];
+	enter_string(str);
+	scanf_s("%c",&c);
+	delete_string(str, c);
+	print_string(str);
+
+}
+void pointer_test()
+{
+	/*
+	变量a 变量b 
+	pointer_1是定义的整形类型指针变量
+	pointer_2是定义的整形类型指针变量
+	指针 具体化就是地址变量
+	*/
+	int a = 100, b = 10;
+	int* pointer_1, * pointer_2;
+	pointer_1 = &a;
+	pointer_2 = &b;
+	printf("a=%d,b=%d\t",a,b);
+	printf("*pointer_1=%d,pointer_2=%d", *pointer_1, *pointer_2);
+}
+void pointer_exchange()
+{
+	int* p1, * p2, * p, a, b;
+	printf("please enter two integer numbers:\n");
+	scanf("%d %d",&a,&b);
+	p1 = &a;
+	p2 = &b;
+	if (a < b)
+	{
+		p = p1;
+		p1 = p2;
+		p2 = p;		
+	}
+	printf("a=%d,b=%d\n", a, b);
+	printf("max=%d,min=%d\n",*p1,*p2);
+}
+void swap_pointer(int *p1,int *p2)
+{
+	int tmp;
+	tmp = *p1;
+	*p1 = *p2;
+	*p2 = tmp;
+}
+void exchange_test()
+{
+	void swap_pointer(int* p1, int* p2);
+	int a, b;
+	int* pointer_1,*pointer_2;
+	printf("please enter a and b");
+	scanf("%d %d",&a,&b);
+	pointer_1 = &a;
+	pointer_2 = &b;
+	if (a < b) swap_pointer(pointer_1,pointer_2);
+	printf("max=%d,min=%d",a,b);
+
+}
+void exchange(int* q1, int* q2, int* q3)
+{
+	void swap_pointer(int* p1, int* p2);
+	if (*q1 < *q2) swap_pointer(q1,q2);
+	if (*q1 < *q3) swap_pointer(q1, q3);
+	if (*q2 < *q3) swap_pointer(q2, q3);
+}
+void exchange_test_3()
+{
+	int a, b, c, * p1, * p2, * p3;
+	printf("please enter three numbers:\n");
+	scanf("%d %d %d",&a,&b,&c);
+	p1 = &a; p2 = &b; p3 = &c;
+	exchange(p1,p2,p3);
+	printf("The order is :%d,%d,%d\n",a,b,c);
+	
+}
+void array_pointer()
+{
+	int a[10];
+	int* p,i;
+	printf("please enter 10 integer numbers:\n");
+	for ( i = 0; i < 10; i++)
+	{
+		scanf("%d",&a[i]);
+	}
+	for (i = 0; i < 10; i++)
+	{
+		printf("%d ", *(a+i));
+	}
+	printf("\n");
+	for (p = a; p < a+10; p++)
+	{
+		printf("%d ", *p);
+	}
+	printf("please enter another 10 integer numbers:\n");
+
+	printf("地址相加与 使用scanf赋值\n");
+	for (p = a; p < a + 10; p++)
+	{
+		scanf("%d", p);
+	}
+	for (p = a; p < a + 10; p++)
+	{
+		printf("%d ", *p);
+	}
+
+	
+
+}
+void array_output()
+{
+	int a[10];
+	int* p, i;
+	p = a;
+	printf("please enter 10 integer numbers:\n");
+	printf("p++输入\n");
+	for (i = 0; i < 10; i++)
+	{
+		scanf("%d", p++);
+	}
+	printf("p++输出\n");
+	p = a;
+	for (i = 0; i < 10; i++, p++)
+	{
+		printf("%d ", *p);
+	}
+
+}
+/*使用数组名进行输入反转，输入的数组就是地址输入相当于指针*/
+void inv_1(int x[],int n)
+{
+	int temp, i, j, m = (n - 1) / 2;
+	for ( i = 0; i < m; i++)
+	{
+		j = n - 1 - i;
+		temp = x[i]; x[i] = x[j]; x[j] = temp;
+	}
+}
+/*指针变量，需要输入地址*/
+void inv_2(int *x, int n)
+{
+	int * p, temp, * i, * j, m = (n - 1) / 2;
+	i = x; j = x + n - 1; p = x + m;
+	for (; i<=p; i++, j--)
+	{
+		temp = *i; *i = *j; *j = temp;
+	}
+
+}
+
+void inv_exchange()
+{
+	void inv_1(int x[], int n);
+	void inv_2(int* x, int n);
+	int i, a[10] = {1, 3, 5, 7, 9,2,4,6,8,10};
+	printf("The original array:\n");
+	for ( i = 0; i < 10; i++)
+	{
+		printf("%d ",a[i]);
+
+	}
+	printf("\n");
+	
+	inv_2(a, 10);
+	printf("The array has been inverted:\n");
+	for ( i = 0; i < 10; i++)
+	{
+		printf("%d ",a[i]);
+
+	}
+	printf("\n");
+
+
+}
+void sort(int x[],int n)
+{
+	int i, j, k, t;
+	for ( i = 0; i < n-1; i++)
+	{
+		k = i;
+		for ( j = i+1; j < n; j++)
+		{
+			if (x[j]>x[k])
+			{
+				k = j;
+			}
+			if (k != i)
+			{
+				t = x[i]; x[i] = x[k]; x[k] = t;
+			}
+
+		}
+
+	}
+	
+}
+void sort_2(int *x,int n)
+{
+	int i, j, k, t;
+	for ( i = 0; i < n-1; i++)
+	{
+		k = i;
+		for (j = i + 1; j < n; j++)
+		{
+			if (x[j] < x[k])
+				k = j;
+		}
+		if (k!=i)
+		{
+			t = *(x + i); *(x + i) = *(x + k); *(x + k) = t;
+		}
+	}
+}
+void sort_order_pointer()
+{
+	int i, * p, a[10];
+	p = a;
+	printf("please enter 10 integer numbers:");
+	for ( i = 0; i < 10; i++)
+	{
+		scanf("%d", p++);
+	}
+	p = a;
+	sort_2(p,10);
+	for ( p = a,i=0; i < 10; i++)
+	{
+		printf("%d\t",*p++);
+		
+	}
+	printf("\n");
+
+}
+void Two_dimensional_address()
+{
+	int a[3][4] = {1,3,5,7,9,11,13,15,17,19,21,23};
+	printf("%d,%d\n",a,*a);
+	printf("%d,%d\n", a[0], *(a+0));
+	printf("%d,%d\n", a[1], a+1);
+	printf("%d,%d\n", &a[1][0], *(a+1)+0);
+	printf("%d,%d\n", a[2], *(a+2));
+	
+	printf("%d,%d\n", &a[2], a+2);
+	printf("%d,%d\n", a[1][0], *(*(a+1)+0));
+
+	printf("%d,%d\n", *a[2], *(*(a + 2) + 0));
+
+	
+
+
+
+}
+void Two_dimensional_pointer()
+{
+	int a[3][4] = { 1,3,5,7,9,11,13,15,17,19,21,23 };
+	int* p;
+	for ( p = a[0]; p < a[0]+12; p++)
+	{
+		
+		if ((p - a[0]) % 4 == 0)
+		{
+			printf("\n");
+
+		}
+		printf("%4d", *p);
+	}
+}
+void pointer_array()
+{
+	int a[4] = {1,3,5,7};
+	int(*p)[4];
+	p = &a;
+	printf("%d\n", (*p)[3]);
+}
+void average(float *p,int n)
+{
+	float* p_end;
+	float sum = 0, aver;
+	p_end = p +n -1;
+	for ( ; p <=p_end ; p++)
+	{
+		sum = sum + (*p);
+	}
+	aver = sum / n;
+	printf("average=%5.2f\n",aver);
+
+}
+void search(float (*p)[4],int n)
+{
+	int i;
+	printf("The score of No.%d are:\n", n);
+	for ( i = 0; i < 4; i++)
+	{
+		printf("%5.2f\t",*(*(p+n)+i));
+	}
+	printf("\n");
+
+}
+void test_aver()
+{
+	float score[3][4] = { {65,67,70,60} ,{80,87,90,81}, {90,99,100,98} };
+	average(*score,12);
+	search(score, 1);
+}
+void search_1(float (*p)[4], int n)
+{
+	int i, j, flag;
+	for ( j = 0; j < n; j++)
+	{
+		flag = 0;
+		for ( i = 0; i < 4; i++)
+		{
+			if (*(*(p+j)+i)<60)
+			{
+				flag = 1;
+			}
+
+			if (flag==1)
+			{
+				printf("No.%d fails,his scores are :\n",j+1);
+				for ( i = 0; i < 4; i++)
+				{
+					printf("%5.1f",*(*(p+j)+i));
+				}
+				printf("\n");
+
+
+			}
+
+		}
+
+	}
+}
+void test_search()
+{
+	float score[3][4] = { {65,57,2,55},{80,89,99,76},{58,41,98,100} };
+	search_1(score, 3);
+}
+void copy_string_test()
+{
+	char a[] = "I am a student !",b[20];
+	int i;
+	for ( i = 0;*(a+i)!='\0' ; i++)
+	{
+		*(b + i) = *(a + i);
+	}
+	*(b + i) = '\0';
+	printf("b是%s\n", b);
+	printf("a是%s\n", a);
+
+	printf("逐个输出b是\t");
+	for ( i = 0; *(b+i)!='\0' ; i++)
+	{
+		printf("%c",*(b+i));
+	}
+	printf("\n");
+}
+void copy_string_test_1()
+{
+	char a[] = "I am a God !", b[20], * p1, * p2;
+	p1 = a; p2 = b;
+	for (; *p1!='\0'; p1++,p2++)
+	{
+		*(p2) = *(p1);
+	}
+	*(p2) = '\0';
+	printf("string a is %s\n",a);	
+	printf("string b is %s\n", b);
+
+}
+void copy_string(char from[], char to[])
+{
+	int i = 0;
+	while (from[i]!='\0')
+	{
+		to[i] = from[i];
+		i++;
+	}
+	to[i] = '\0';
+
+}
+void copy_sttring_test3()
+{
+	char a[] = "fuck you！";
+	char b[] = "You are a bad student !";
+	printf("a is %s\n", a);
+	printf("b is %s\n", b);
+	printf("fuck copy finished \n");
+	copy_string(a,b);
+	printf("a=%s,b=%s\n", a,b);
+
+
+}
+
+void copy_string_pointer(char *from,char *to)
+{
+	for(;*from!='\0';from++,to++)
+	{
+		*to = *from;
+	}
+	*to = '\0';
+}
+void copy_string_pointer_2(char* from, char* to)
+{
+	while ((*to++ = *from++) != '\0');
+
+}
+void copy_string_test4()
+{
+	char  a[] = "asd";
+	char b[] = "你是个大坏蛋";
+	char* p = b;
+	printf("string a=%s\n string b=%s\n",a,b);
+	printf("\n开始复制\n");
+	copy_string_pointer_2(a,p);
+	printf("string a=%s\nstring b=%s\n", a, b);
+
+
+
+}
+void format_test() 
+{
+	const char* format;
+	int a = 1;
+	float b = 1.111;
+	format = "a=%d,b=%f\n";
+	format = "a=%5.2f,b=%5.2d\n";
+	printf(format, a, b);
+}
+
+int min(int x, int y)
+{
+	int z;
+	if (x<y)
+	{
+		z = x;
+	}
+	else
+	{
+		z = y;
+	}
+	return z;
+
+}
+void function_pointer()
+{
+	int (*p)(int, int) =NULL; //必须进行空指针设置
+	int a, b, c, n;
+	printf("enter a and b\n");
+	scanf("%d %d",&a,&b);
+	printf("chose 1 or 2\n");
+	scanf("%d",&n);
+	if (n==1)
+	{
+		p = max_2;
+
+	}
+	else if(n==2)
+	{
+		p = min;
+	}
+	c = (*p)(a, b);
+	printf("a=%d b=%d\n", a, b);
+	
+	if (n == 1)
+		printf("max is ");
+	else if (n==2)
+	{
+		printf("min is");
+	
+	}
+	printf("%d\n", c);
+
+
+
+}
+void sort_pointer(const char* name[], int n)
+{
+	const char* temp;
+	int i, j, k;
+	for ( i = 0; i < n-1; i++)
+	{
+		k = i;
+		for ( j = i+1; j < n; j++)
+		{
+			if (strcmp(name[k],name[j])>0)
+			{
+				k = j;
+			}
+		}
+
+		if (k!=i)
+		{
+			temp = name[i]; name[i] = name[k]; name[k] = temp;
+		}
+	}
+}
+void print(const char* name[], int n)
+{
+	int i;
+	for ( i = 0; i < n; i++)
+	{
+		printf("%s\n",name[i]);
+	}
+}
+void multiply_pointer()
+{
+	const char* name[] = { "Follow me","BASIC","Great Wall","FORTRAN","Computer desigh" };
+	int n=5;
+	sort_pointer(name, n);
+	print(name, n);
+
+
+
+
+
+}
+/*指向指针数组的指针变量*/
+void pointer_array_pointer_var()
+{
+	const char* name[] = { "Follow me","BASIC","Great Wall","FORTRAN","Computer desigh" };
+	/*地址组成的数组*/
+	const char** p;
+	/*
+	char p 字符  变量 p
+	char *p  指针变量p 指向 字符变量的地址
+	char **p 指向char *p 指针变量
+	*/
+	int i;
+	for ( i = 0; i < 5; i++)
+	{
+		p = name + i;
+		printf("%s\n",*p);
+
+	}
+}
+void pointer_array_element()
+{
+	int a[5] = { 1,3,5,7,9 };
+	int* num[5] = { &a[0],&a[1],&a[2],&a[3],&a[4] };
+	int** p, i;
+	p = num;
+	for ( i = 0; i < 5; i++)
+	{
+		printf("%d ",**p);
+		p++;
+
+	}
+	printf("\n");
+
+}
+void check(int*p)
+{
+	int i;
+	printf("They are fail:");
+	for ( i = 0; i < 5; i++)
+	{
+		if (p[i] < 60) printf("%d ", p[i]);
+
+	}
+	printf("\n");
+}
+void Memory_allocation()
+{
+	int* p1, i;
+	p1 = (int*)malloc(5 * sizeof(int));
+	for ( i = 0; i < 5; i++)
+	{
+		scanf("%d",p1+i );
+
+	}
+	check(p1);
+}
+struct Student* head, * p;
+struct Student a, b, c;
+void Linked_list()
+{
+
+
+	a.num = 1001; a.score = 89.5;
+	b.num = 1003; b.score = 99.5;
+	c.num = 1007; c.score = 85;
+	head = &a;
+	a.next = &b;
+	b.next = &c;
+	c.next = NULL;
+	p = head;
+
+
+	do
+	{
+		printf("%d %5.1lf ", p->num, p->score);
+		p = p->next;
+
+	} while (p != NULL);
+
+
+}
+void union_test()
+{
+	struct {
+		int num;
+		char name[10];
+		char sex;
+		char job;
+		union {
+			int clas;
+			char position[10];
+		}category;
+	}person[2];
+
+
+	int i;
+	for (i = 0; i < 2; i++)
+	{
+		printf("please enter the data of person\n");
+		scanf("%d %s %c %c", &person[i].num, person[i].name, &person[i].sex, &person[i].job);
+		if (person[i].job == 's')
+		{
+			scanf("%d", &person[i].category.clas);
+
+
+		}
+		else if (person[i].job == 't')
+		{
+			scanf("%s", person[i].category.position);
+		}
+		else
+		{
+			printf("Input error!");
+		}
+
+	}
+		printf("\n");
+		printf("No. name sex job class/position\n");
+		for ( i = 0; i < 2; i++)
+		{
+			if (person[i].job=='s')
+			{
+				printf("%-6d-%-10s-%-4c%-4c%-10d\n", person[i].num, person[i].name, person[i].sex, person[i].job, person[i].category.clas);
+			}
+			else
+			{
+				printf("%-6d-%-10s-%-4c%-4c%-10s\n", person[i].num, person[i].name, person[i].sex, person[i].job, person[i].category.position);
+			}
+			}
+
+}
+
+typedef struct
+{
+	int month;
+	int day;
+	int year;
+}Date;
+Date birthday;
+Date* p;
+typedef char* String;
+String p, s[10];
+typedef int (*Pointer)();
+Pointer p1, p2;
+
