@@ -1,11 +1,13 @@
 ﻿// C练手.cpp : 此文件包含 "main" 函数。程序执行将在此处开始并结束。
 //
+#define NDEBUG
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h >
 #include <math.h>
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <assert.h>
 struct Student
 {
 	int num;
@@ -103,7 +105,11 @@ int main()
 	  void Memory_allocation();
 	  void Linked_list();
 	  void union_test();
-	   union_test();
+	  void SendPornPicture();
+	  void assert_test();
+	  assert_test();
+	 //  SendPornPicture();
+	  // union_test();
 	  // Linked_list();
 	  // Memory_allocation();
 	   //pointer_array_element();
@@ -189,7 +195,7 @@ int main()
 	//printf("%d",d);
 
 	//sum_lnx =lnx();
-	//printf("Lnx= %f\n", sum_lnx);
+	//printf("Lnx= %f\n", sum_lnx);;;
 	
 
 }
@@ -2126,10 +2132,28 @@ typedef struct
 	int day;
 	int year;
 }Date;
-Date birthday;
-Date* p;
-typedef char* String;
-String p, s[10];
-typedef int (*Pointer)();
-Pointer p1, p2;
+//Date birthday;
+//Date* p;
+//typedef char* String;
+//String p, s[10];
+//typedef int (*Pointer)();
+//Pointer p1, p2;
+void SendPornPicture()
+{
+	for (;; )
+		printf("发色图\n");
+}
+/*什么是断言*/
+void assert_test()
+{
+	double x, y, z;
+	puts("Enter X and Y (X>Y): ");
+	while (scanf("%lf%lf",&x,&y))
+	{
+		z = x - y;
+		assert(z>=0);
+		puts("OK\nEnter X and Y (X>Y): ");
+	}
 
+	
+}

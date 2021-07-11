@@ -34,4 +34,5 @@ void common_divisor()
 	}
 	printf("最大公约数是:\n%d\n",b);
 	printf("最小公倍数是:\n%d\n", m/b);
+	//草泥马github
 }
